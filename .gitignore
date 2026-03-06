@@ -205,3 +205,21 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Data files - gunakan DVC untuk versioning data
+data/raw/*.csv
+data/processed/*.csv
+data/interim/*.csv
+!data/**/.gitkeep
+
+# Model artifacts
+models/trained/*.pkl
+models/trained/*.joblib
+!models/**/.gitkeep
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Environment
+.env
