@@ -39,23 +39,23 @@ berbasis MLOps yang dapat:
 MLOps-StrokePrediction/
 ├── .devcontainer/devcontainer.json  # Konfigurasi GitHub Codespaces
 ├── data/
-│   ├── raw/          # Dataset asli dari Kaggle (tidak dimodifikasi)
+│   ├── raw/          # Dataset asli dari Kaggle 
 │   ├── processed/    # Data setelah preprocessing
 │   ├── interim/      # Batch simulasi bulanan (data01-05.csv)
 │   └── external/     # Data referensi eksternal
 ├── models/
-│   ├── trained/      # Model .pkl hasil training
-│   └── evaluation/   # Metrics, confusion matrix
+│   ├── trained/      # Model hasil training
+│   └── evaluation/   # Confusion matrix
 ├── notebooks/
 │   └── 01_initial_eda.ipynb  # EDA awal dataset stroke
 ├── src/
-│   ├── data/         # ingestion.py, validate.py
-│   ├── features/     # preprocess.py (imputasi, encoding, SMOTE)
-│   ├── models/       # train.py, predict.py
-│   └── visualization/ # eda_plots.py
+│   ├── data/         
+│   ├── features/     
+│   ├── models/       
+│   └── visualization/ 
 ├── config/config.yaml  # Hyperparameter & threshold konfigurasi
 ├── reports/figures/    # Grafik output EDA
-├── tests/              # Unit tests
+├── tests/              
 ├── requirements.txt
 └── README.md
 ```
