@@ -1,0 +1,37 @@
+data:
+processed_path: "data/processed/"
+  interim_path: "data/interim/"
+  n_batches: 5                    # jumlah batch simulasi bulanan
+  test_size: 0.2
+  random_state: 42
+
+features:
+  target: "stroke"
+  drop_cols: ["id"]               # kolom id tidak dipakai
+  numeric_cols: ["age", "avg_glucose_level", "bmi"]
+  categorical_cols: ["gender", "ever_married", "work_type",
+                     "Residence_type", "smoking_status"]
+  impute_strategy: "median"       # untuk missing BMI (201 baris)
+
+model:
+  name: "RandomForestClassifier"
+  params:
+    n_estimators: [100, 200, 300]
+    max_depth: [10, 20, null]
+    min_samples_split: [2, 5]
+    class_weight: "balanced"      # bantu tangani imbalance
+
+evaluation:
+  primary_metric: "recall"        # prioritas: minimasi false negative
+  thresholds:
+    recall: 0.80
+    f1_score: 0.75
+    roc_auc: 0.85
+
+mlflow:
+  experiment_name: "stroke-prediction"
+  tracking_uri: "mlruns"
+
+drift:
+  psi_threshold: 0.2              # PSI > 0.2 = drift signifikan
+  reference_batch: "data01.csv"
